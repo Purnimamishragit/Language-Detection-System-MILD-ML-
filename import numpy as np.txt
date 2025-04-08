@@ -1,0 +1,57 @@
+import numpy as np
+import pandas as pd
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import MultinomialNB
+import speech_recognition as sr
+from enum import Enum
+data = pd.read_csv("language.csv")
+data
+print(data.head())
+print(data.isnull().sum())
+print(data['language'].value_counts())
+print(data.dtypes)
+x = np.array(data['Text'])
+y = np.array(data['language'])
+print("Features (Text):", x)
+print("Labels (Language):", y)
+cv = CountVectorizer()
+X = cv.fit_transform(x)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
+print("Training Data (Vectorized):", X_train)
+accuracy = model.score(X_test, y_test)
+print(f"Model Accuracy: {accuracy:.2f}")
+class SpeechToText:
+    @staticmethod
+    def speech_to_text(device_index=1, language=Language.ENGLISH):
+        r = sr.Recognizer()
+        with sr.Microphone(device_index=device_index) as source:
+            print("Recording...")
+            audio = r.listen(source)
+            print("Recording Complete...")
+
+            try:
+                # Transcribe audio to text
+                text = r.recognize_google(audio, language=language.value)
+                print(f"Transcribed Text ({language.name}):", text)
+                return text
+            except sr.UnknownValueError:
+                print("Could not understand audio")
+                return None
+            except sr.RequestError as e:
+                print("Request error from Google Speech Recognition service; {0}".format(e))
+                return None
+def predict_language_from_audio(device_index=1, language=Language.ENGLISH):
+    transcribed_text = SpeechToText.speech_to_text(device_index, language)
+    
+    if transcribed_text:
+        data = cv.transform([transcribed_text]).toarray()
+        output = model.predict(data)
+        print("Predicted Language:", output)
+if __name__ == "__main__":
+    device_index = 1  # Set device index based on available microphones
+    language = Language.ENGLISH # Set language to English for recognition
+    predict_language_from_audio(device_index=device_index, language=language)
+
+
+
