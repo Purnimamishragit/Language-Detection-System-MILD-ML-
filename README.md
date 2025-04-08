@@ -63,8 +63,10 @@ Use the interface to upload an audio file and get real-time predictions.
 Purnima
 3rd Year B.Tech CSE Student, Silicon University
 
-![WhatsApp Image 2025-04-08 at 11 44 53_f1728fb2](https://github.com/user-attachments/assets/a16704a3-681f-4680-b927-a8cdd9c65132)
-![WhatsApp Image 2025-04-08 at 11 44 55_e4d19c07](https://github.com/user-attachments/assets/0fdf05bf-cb65-4570-84fe-453d29f5ddc6)
+
+![Screenshot 2024-12-07 153727](https://github.com/user-attachments/assets/23aef3d0-f34e-4da0-8588-f0ca10acb697)
+![Screenshot 2024-12-07 103126](https://github.com/user-attachments/assets/b68647b8-d9b5-4681-ad4c-460e3347b53d)
+
 ![audio-ezgif com-optimize](https://github.com/user-attachments/assets/61a44622-0b44-4902-acbe-8adc2a98290d)
 ![text-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/79293320-a497-44b7-8cd5-19a00d652638)
 
